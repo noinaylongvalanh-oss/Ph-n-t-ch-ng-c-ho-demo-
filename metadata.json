@@ -1,0 +1,7 @@
+{
+  "name": "RetroSynth Offline",
+  "description": "Ứng dụng phân tích tổng hợp hóa học ngược (Retrosynthetic Analysis) chuyên nghiệp, hoạt động hoàn toàn offline không cần mạng.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

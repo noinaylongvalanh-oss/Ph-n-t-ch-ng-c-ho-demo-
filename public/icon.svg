@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="92" fill="none" stroke="#1e293b" stroke-width="4" />
+
+  <!-- Background subtle chemical grid -->
+  <g opacity="0.12" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 6">
+    <circle cx="256" cy="256" r="180" fill="none" />
+    <circle cx="256" cy="256" r="110" fill="none" />
+    <line x1="256" y1="50" x2="256" y2="462" />
+    <line x1="50" y1="256" x2="462" y2="256" />
+  </g>
+
+  <!-- Benzene ring / Molecule core -->
+  <!-- Left Side: Target Molecule (fragment) -->
+  <g transform="translate(130, 256)" filter="url(#glow)">
+    <!-- Hexagon Ring -->
+    <polygon points="0,-70 60,-35 60,35 0,70 -60,35 -60,-35" 
+      fill="#0f172a" stroke="#38bdf8" stroke-width="8" stroke-linejoin="round" />
+    <!-- Inner aromatic circle -->
+    <circle cx="0" cy="0" r="42" fill="none" stroke="#38bdf8" stroke-width="5" stroke-dasharray="8 6" opacity="0.8" />
+    
+    <!-- Functional group branch -->
+    <line x1="60" y1="-35" x2="105" y2="-62" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" />
+    <circle cx="118" cy="-70" r="14" fill="#ef4444" />
+    
+    <!-- Disconnection Wavy Cut Line -->
+    <path d="M 50,-80 Q 75,-40 65,-10 Q 55,20 85,50" fill="none" stroke="#f43f5e" stroke-width="6" stroke-dasharray="6 4" stroke-linecap="round" />
+  </g>
+
+  <!-- Central Retrosynthetic Arrow: ===> (Double shaft, open head) -->
+  <g transform="translate(256, 256)" filter="url(#glow)">
+    <!-- Top shaft -->
+    <line x1="-36" y1="-14" x2="24" y2="-14" stroke="url(#accentGrad)" stroke-width="7" stroke-linecap="round" />
+    <!-- Bottom shaft -->
+    <line x1="-36" y1="14" x2="24" y2="14" stroke="url(#accentGrad)" stroke-width="7" stroke-linecap="round" />
+    <!-- Retrosynthetic Arrow Head (open wedge) -->
+    <polyline points="0,-36 38,0 0,36" fill="none" stroke="url(#accentGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Right Side: Synthons (Synthons with + and - charges) -->
+  <g transform="translate(376, 210)">
+    <!-- Synthon A (+) -->
+    <circle cx="0" cy="0" r="32" fill="#1e293b" stroke="#38bdf8" stroke-width="4" />
+    <text x="0" y="8" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#38bdf8" text-anchor="middle">R⁺</text>
+    <text x="24" y="-12" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#38bdf8">a¹</text>
+  </g>
+
+  <g transform="translate(376, 302)">
+    <!-- Synthon D (-) -->
+    <circle cx="0" cy="0" r="32" fill="#1e293b" stroke="#10b981" stroke-width="4" />
+    <text x="0" y="8" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#10b981" text-anchor="middle">X⁻</text>
+    <text x="24" y="-12" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#10b981">d¹</text>
+  </g>
+
+  <!-- Title Badge text at bottom -->
+  <text x="256" y="440" font-family="system-ui, sans-serif" font-size="26" font-weight="800" fill="#94a3b8" letter-spacing="4" text-anchor="middle">
+    RETRO<tspan fill="#38bdf8">SYNTH</tspan>
+  </text>
+</svg>
